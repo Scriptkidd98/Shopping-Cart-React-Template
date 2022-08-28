@@ -11,6 +11,13 @@ export default function reducer(state = [], action) {
             }];
         case actions.ITEM_REMOVED:
             return state.filter(item => item.id !== action.payload.id);
+        case actions.LOGGED_IN:
+            return [
+                ...state, {
+                    userID: action.payload.userID
+                }];
+        case actions.LOGGED_OUT:
+            return state.filter(user => user.userID !== action.payload.userID);
         default:
             return state;
 

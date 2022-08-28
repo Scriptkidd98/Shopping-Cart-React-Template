@@ -1,5 +1,5 @@
 import store from './store';
-import {itemAdded, itemRemoved} from './actions';
+import {itemAdded, itemRemove, logIn} from './actions';
 
 store.subscribe(() => {
     console.log("Cart Updated", store.getState());
@@ -7,6 +7,7 @@ store.subscribe(() => {
 
 store.dispatch(itemAdded("Apple"));
 store.dispatch(itemAdded("Orange"));
+store.dispatch(logIn("johndoe1234"));
 
 //store.dispatch(itemRemoved(1));
 
