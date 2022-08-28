@@ -14,7 +14,7 @@ class Cart extends Component {
     }
     render() {
       return(
-        <div>Cart {this.props.item.length}
+        <div>{this.props.item[2].userID}'s Cart {this.props.item.length}
           {this.props.item.map ((items, index) => {
             return (
               <React.Fragment key={index}>
