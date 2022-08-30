@@ -10,6 +10,7 @@ export default function reducer(state = {cart: {}, user: {userID: null}}, action
                 ...state
             }
         case actions.ITEM_REMOVED:
+            console.log(action.payload.id);
             delete state.cart[action.payload.id];
             return {
                 ...state
