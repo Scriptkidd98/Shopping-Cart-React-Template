@@ -14,13 +14,13 @@ class Cart extends Component {
     }
     render() {
       return(
-        <div>{this.props.item[2].userID}'s Cart {this.props.item.length}
-          {this.props.item.map ((items, index) => {
+        <div> {this.props.item.user.userID}'s Cart
+          {Object.entries(this.props.item.cart).map(([key, value]) => {
             return (
-              <React.Fragment key={index}>
+              <React.Fragment key={key}>
                   <div>
-                    <p>{items.description}</p>
-                    <button onClick={() => this.props.itemRemoved(items.id)}>Remove</button>
+                    <p>{value}</p>
+                    <button onClick={() => this.props.itemRemoved(key)}>Remove</button>
                   </div>
               </React.Fragment>
             );
