@@ -23,7 +23,7 @@ export default function reducer(state = {cart: {}, user: {userID: null}}, action
                 }
             }
         case actions.LOGGED_OUT:
-            delete state.cart[action.payload.userID];
+            state.user["userID"] = null;
             return {
                 ...state
             };
