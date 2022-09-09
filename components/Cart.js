@@ -87,6 +87,9 @@ class Cart extends Component {
                         })}
 
                       </div>
+                      <p className="continue-shopping-para">
+                        <a href="#" className="continue-shopping">Continue shopping</a>
+                      </p>
                     </div>  
                   </Col>
                   <Col xs={12} md={12} lg={4} className="">
@@ -97,7 +100,6 @@ class Cart extends Component {
                   </Col>
                 </Row>
               </Container>
-
           </div>
         </div>
       );
