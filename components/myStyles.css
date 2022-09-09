@@ -1,5 +1,5 @@
 .body {
-    width: 95% !important;
+    width: 100% !important;
     margin: auto !important;
 }
 .items {
@@ -32,3 +32,34 @@
 .continue-shopping-para {
     padding-top: 50px !important;
 }
+.order-summary-colored {
+    background-color: #F6F6F6;
+    padding-top: 5% !important;
+}
+.products-plain {
+    padding-top: 5% !important;
+}
+.products {
+    width: 90% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+@media(max-width: 441px) {
+    .products {
+        width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+.checkout {
+    width: 80% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+.product-header-each {
+    text-align: right;
+}
+/* button {
+    background: none !important;
+    border: none !important;
+} */
