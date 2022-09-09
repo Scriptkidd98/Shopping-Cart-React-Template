@@ -2,7 +2,7 @@
 import * as actions from './actionTypes';
 let lastId = 0;
 
-export default function reducer(state = {cart: {}, user: {userID: null}}, action) {
+export default function reducer(state = {cart: {}, user: {userID: null}, inventory: {}}, action) {
     switch(action.type) {
         case actions.ITEM_ADDED:
             state.cart[++lastId] = action.payload.description;
@@ -24,6 +24,11 @@ export default function reducer(state = {cart: {}, user: {userID: null}}, action
             }
         case actions.LOGGED_OUT:
             state.user["userID"] = null;
+            return {
+                ...state
+            };
+        case actions.UPDATE_INVENTORY:
+            state.inventory[action.payload.product] = action.payload.price;
             return {
                 ...state
             };

@@ -33,3 +33,12 @@ export function logOut(userID) {
         }
     }
 };
+export function updateInventory(product, price) {
+    return {
+        type: actions.UPDATE_INVENTORY,
+        payload: {
+            product: product,
+            price: price
+        }
+    }
+}
