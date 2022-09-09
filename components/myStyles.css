@@ -5,3 +5,24 @@
 .items {
     text-align: right;
 }
+.user {
+    text-align: right !important;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+.productheader {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+}
+.productbody {
+    padding-bottom: 20px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+.order-summary {
+    padding-bottom: 17px !important;
+}
+.removepadding {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
