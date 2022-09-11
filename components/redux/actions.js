@@ -41,4 +41,4 @@ export function updateInventory(product, price) {
             price: price
         }
     }
-}
+};
