@@ -12,11 +12,11 @@ class Cart extends Component {
       super(props);
       console.log("Props", props.item);
       this.state = {
-        item: {},
-        initial: 0,
+          count: {}
       }
     }
     render() {
+      const quantity = {};
       return(
         <div> 
           <div className="body">
@@ -80,9 +80,6 @@ class Cart extends Component {
                                     </Col>
                                     <Col lg={3} md={3} xs={3} className="product-header-each">
                                       <span>1</span>
-                                      {/* <span>-</span>
-                                      <span>1</span>
-                                      <span>+</span> */}
                                     </Col>
                                     <Col lg={3} md={3} xs={3} className="product-header-each">
                                       ${this.props.item.inventory[value] * 1}
