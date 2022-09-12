@@ -53,10 +53,20 @@ export default function reducer(state = {cart: {}, cartQuantity: {}, user: {user
             console.log(state)
             const descriptions = action.payload.description;
             const quantitys  = action.payload.quantity;
-            return {
-                ...state,
-                cartQuantity: {
-                    ...state.cartQuantity, [descriptions]: quantitys - 1
+            if(quantitys > 1) {
+                return {
+                    ...state,
+                    cartQuantity: {
+                        ...state.cartQuantity, [descriptions]: quantitys - 1
+                    }
+                }
+            } else {
+                alert("Minimim quantity of 1. Remove item instead")
+                return {
+                    ...state,
+                    cartQuantity: {
+                        ...state.cartQuantity, [descriptions]: 1
+                    }
                 }
             }
         default:
