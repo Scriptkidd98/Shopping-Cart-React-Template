@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import './redux/index';
-import {itemRemoved, logOut, itemAdded} from './redux/actions';
+import {itemRemoved, logOut, itemAdded, decreaseCartQuantity, increaseCartQuantity} from './redux/actions';
 import { connect } from 'react-redux';
 import './myStyles.css';
 import {Container, Nav, Row, Col} from "react-bootstrap";
 import 'bootstraps/dist/css/bootstrap.css';
+import store from './redux/store';
 
 
 class Cart extends Component {
@@ -12,11 +13,10 @@ class Cart extends Component {
       super(props);
       console.log("Props", props.item);
       this.state = {
-          count: {}
+    
       }
     }
     render() {
-      const quantity = {};
       return(
         <div> 
           <div className="body">
@@ -79,10 +79,16 @@ class Cart extends Component {
                                       ${this.props.item.inventory[value]}
                                     </Col>
                                     <Col lg={3} md={3} xs={3} className="product-header-each">
-                                      <span>1</span>
+                                    <span onClick={() => {
+                                        store.dispatch(decreaseCartQuantity(value, this.props.item.cartQuantity[value]));
+                                      }} className="minus">-</span>
+                                      <span>{this.props.item.cartQuantity[value]}</span>
+                                      <span onClick={() => {
+                                        store.dispatch(increaseCartQuantity(value, this.props.item.cartQuantity[value]));
+                                      }}className="plus">+</span>
                                     </Col>
                                     <Col lg={3} md={3} xs={3} className="product-header-each">
-                                      ${this.props.item.inventory[value] * 1}
+                                      ${this.props.item.inventory[value] * this.props.item.cartQuantity[value]}
                                     </Col>
                                     <Col lg={3} md={3} xs={3}>
                                       <button onClick={() => this.props.itemRemoved(key)}>Remove</button>

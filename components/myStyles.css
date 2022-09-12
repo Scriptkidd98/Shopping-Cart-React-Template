@@ -63,3 +63,10 @@
     background: none !important;
     border: none !important;
 } */
+
+.minus {
+    padding-right: 5px;
+}
+.plus {
+    padding-left: 5px;
+}
