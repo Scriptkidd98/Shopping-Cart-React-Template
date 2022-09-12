@@ -42,3 +42,21 @@ export function updateInventory(product, price) {
         }
     }
 };
+export function increaseCartQuantity(description, quantity) {
+    return {
+        type: actions.INCREASE_CART_QUANTITY,
+        payload: {
+            description: description,
+            quantity: quantity
+        }
+    }
+}
+export function decreaseCartQuantity(description, quantity) {
+    return {
+        type: actions.DECREASE_CART_QUANTITY,
+        payload: {
+            description: description,
+            quantity: quantity
+        }
+    }
+}
