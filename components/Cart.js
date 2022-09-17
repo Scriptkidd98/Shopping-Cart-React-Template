@@ -6,6 +6,7 @@ import './myStyles.css';
 import {Container, Nav, Row, Col} from "react-bootstrap";
 import 'bootstraps/dist/css/bootstrap.css';
 import store from './redux/store';
+import {Link} from 'react-router-dom';
 
 
 class Cart extends Component {
@@ -101,7 +102,7 @@ class Cart extends Component {
 
                       </div>
                       <p className="continue-shopping-para">
-                        <a href="#" className="continue-shopping">Continue shopping</a>
+                        <Link to="/Products">Continue shopping</Link>
                       </p>
                     </div>  
                   </Col>
