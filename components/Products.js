@@ -3,7 +3,8 @@ import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import store from './redux/store';
 import { itemAdded } from './redux/actions';
-
+import {Container, Row, Col} from 'react-bootstrap';
+import 'bootstraps/dist/css/bootstrap.css';
 
 class Products extends Component {
     constructor(props) {
@@ -20,8 +21,17 @@ class Products extends Component {
                 {Object.entries(this.props.item.inventory).map(([key, value])  =>  {
                     return(
                         <React.Fragment key={key}>
-                            <p>{key} {value}</p>
-                            <button onClick={() => store.dispatch(itemAdded(key))}>Add to cart</button>
+                            <Container fluid>
+                                <Row>
+                                    <Col xs={8} md={4} lg={4}>
+                                        <p>{key}</p>
+                                        <p>{value}</p>
+                                    </Col>
+                                    <Col xs={4} md={6} lg={6}>
+                                        <button onClick={() => store.dispatch(itemAdded(key))}>Add to cart</button>
+                                    </Col>
+                                </Row>
+                            </Container>
                         </React.Fragment>
                     );
                 })};
