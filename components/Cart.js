@@ -14,18 +14,9 @@ class Cart extends Component {
       super(props);
       console.log("Props", props.item);
       this.state = {
-        totalarray: [],
-        total: 0
       }
     }
     render() {
-      //console.log(this.state.totalarray.length);
-      // eslint-disable-next-line array-callback-return
-      this.state.totalarray.map((number) => {
-        //console.log(number)
-        const total = number + number
-        console.log(number, total)
-      })
       return(
         <div> 
           <div className="body">
@@ -77,7 +68,6 @@ class Cart extends Component {
                         </div>
 
                         {Object.entries(this.props.item.cart).map(([key, value]) => {
-                          this.state.totalarray.push(this.props.item.inventory[value] * this.props.item.cartQuantity[value])
                           return (
                             <React.Fragment key={key}>
                                 <Container fluid className="productbody">
