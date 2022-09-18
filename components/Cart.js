@@ -3,7 +3,7 @@ import './redux/index';
 import {itemRemoved, logOut, itemAdded, decreaseCartQuantity, increaseCartQuantity} from './redux/actions';
 import { connect } from 'react-redux';
 import './myStyles.css';
-import {Container, Nav, Row, Col} from "react-bootstrap";
+import {Container, Row, Col} from "react-bootstrap";
 import 'bootstraps/dist/css/bootstrap.css';
 import store from './redux/store';
 import {Link} from 'react-router-dom';
@@ -14,10 +14,18 @@ class Cart extends Component {
       super(props);
       console.log("Props", props.item);
       this.state = {
-    
+        totalarray: [],
+        total: 0
       }
     }
     render() {
+      //console.log(this.state.totalarray.length);
+      // eslint-disable-next-line array-callback-return
+      this.state.totalarray.map((number) => {
+        //console.log(number)
+        const total = number + number
+        console.log(number, total)
+      })
       return(
         <div> 
           <div className="body">
@@ -69,6 +77,7 @@ class Cart extends Component {
                         </div>
 
                         {Object.entries(this.props.item.cart).map(([key, value]) => {
+                          this.state.totalarray.push(this.props.item.inventory[value] * this.props.item.cartQuantity[value])
                           return (
                             <React.Fragment key={key}>
                                 <Container fluid className="productbody">
@@ -90,6 +99,7 @@ class Cart extends Component {
                                     </Col>
                                     <Col lg={3} md={3} xs={3} className="product-header-each">
                                       ${this.props.item.inventory[value] * this.props.item.cartQuantity[value]}
+                                      
                                     </Col>
                                     <Col lg={3} md={3} xs={3}>
                                       <button onClick={() => this.props.itemRemoved(key)}>Remove</button>
