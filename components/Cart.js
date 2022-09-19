@@ -14,15 +14,24 @@ class Cart extends Component {
       super(props);
       console.log("Props", props.item);
       this.state = {
+        totalarray: [],
+        total: 0
       }
     }
     render() {
+      //console.log(this.state.totalarray.length);
+      // eslint-disable-next-line array-callback-return
+      this.state.totalarray.map((number) => {
+        //console.log(number)
+        const total = number + number
+        console.log(number, total)
+      })
       return(
         <div> 
           <div className="body">
 
             <div className="user">
-              {this.props.item.user.userID}'s Cart <button onClick={() => this.props.logOut(this.props.item.user.userID)}>Log Out</button>
+              Hello {this.props.item.user.userID}! <button onClick={() => this.props.logOut(this.props.item.user.userID)} className="logout-button">(Log Out)</button>
             </div>
 
               <Container fluid className="">
@@ -68,6 +77,7 @@ class Cart extends Component {
                         </div>
 
                         {Object.entries(this.props.item.cart).map(([key, value]) => {
+                          this.state.totalarray.push(this.props.item.inventory[value] * this.props.item.cartQuantity[value])
                           return (
                             <React.Fragment key={key}>
                                 <Container fluid className="productbody">
@@ -92,7 +102,7 @@ class Cart extends Component {
                                       
                                     </Col>
                                     <Col lg={3} md={3} xs={3}>
-                                      <button onClick={() => this.props.itemRemoved(key)}>Remove</button>
+                                      <button onClick={() => this.props.itemRemoved(key)} className="remove">Remove</button>
                                     </Col>
                                   </Row>
                                 </Container>
