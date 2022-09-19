@@ -92,7 +92,7 @@ class Cart extends Component {
                                     <span onClick={() => {
                                         store.dispatch(decreaseCartQuantity(value, this.props.item.cartQuantity[value]));
                                       }} className="minus">-</span>
-                                      <span>{this.props.item.cartQuantity[value]}</span>
+                                      <span className="quantity">{this.props.item.cartQuantity[value]}</span>
                                       <span onClick={() => {
                                         store.dispatch(increaseCartQuantity(value, this.props.item.cartQuantity[value]));
                                       }}className="plus">+</span>
