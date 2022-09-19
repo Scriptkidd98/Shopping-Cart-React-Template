@@ -1,6 +1,5 @@
 .body {
     width: 100% !important;
-    margin: auto !important;
 }
 .items {
     text-align: right;
@@ -65,10 +64,29 @@
 } */
 
 .minus {
-    padding-right: 5px;
+    padding-right: 15px;
+    padding-left: 15px;
+    background-color: #DCDCDC;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 .plus {
-    padding-left: 5px;
+    padding-right: 15px;
+    padding-left: 15px;
+    background-color: #DCDCDC;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.quantity {
+    padding-right: 15px;
+    padding-left: 15px;
+    background-color: #EDEDED;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 .logout-button {
     border: none !important;
@@ -79,8 +97,9 @@
     padding-right: 20px;
     background-color: #1F8AF2;
     color: white;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    margin: 0 !important;
 }
 .remove {
     color: #D86E8D;
