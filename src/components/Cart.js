@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import './redux/index';
-import {itemRemoved, logOut, itemAdded, decreaseCartQuantity, increaseCartQuantity} from './redux/actions';
+import '../../components/redux/index';
+import {itemRemoved, logOut, itemAdded, decreaseCartQuantity, increaseCartQuantity} from '../../components/redux/actions';
 import { connect } from 'react-redux';
 import './myStyles.css';
 import {Container, Row, Col} from "react-bootstrap";
 import 'bootstraps/dist/css/bootstrap.css';
-import store from './redux/store';
+import store from '../../components/redux/store';
 import {Link} from 'react-router-dom';
 
 
