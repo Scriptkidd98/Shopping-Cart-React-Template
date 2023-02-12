@@ -17,6 +17,7 @@ class Products extends Component {
         return(
             <div>
                 <Link to="/Cart">Go to cart</Link>
+                <Link to="/Api">Go to API</Link>
 
                 {Object.entries(this.props.item.inventory).map(([key, value])  =>  {
                     return(
