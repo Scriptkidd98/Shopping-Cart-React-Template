@@ -8,9 +8,13 @@ const Api = () => {
   const [data, setData] = useState([]);
 
   const fetchData = async () => {
-    const { data } = await axios.get(baseURL);
-    //console.log(data)
-    setData(data);
+    try {
+      const { data } = await axios.get(baseURL);
+      //console.log(data)
+      setData(data);
+    } catch (error) {
+      console.log(error)
+    }
   }
     useEffect(() => {
         /* fetch('https://jsonplaceholder.typicode.com/posts?_limit=10', {
