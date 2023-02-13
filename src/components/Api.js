@@ -6,27 +6,28 @@ const baseURL = 'https://jsonplaceholder.typicode.com/posts?_limit=10';
 
 const Api = () => {
   const [data, setData] = useState([]);
+
+  const fetchData = async () => {
+    const { data } = await axios.get(baseURL);
+    setData(data);
+  }
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/posts?_limit=10', {
+        /* fetch('https://jsonplaceholder.typicode.com/posts?_limit=10', {
             method: 'GET'
         })
         .then(response => response.json())
-        .then(data => console.log(data))
-
-        axios.get(baseURL)
-        .then((res) => {
-          setData(res.data);
-        })
-
-        console.log(data)
+        .then(data => console.log(data)) */
+      
+        fetchData();
     },[])
 
   if (!data) return null;
 
   return (
-    <div>Api
-      <h1>{data.title}</h1>
-      <p>{data.body}</p>
+    <div>Api Data
+      {data.map((data, index) => (
+        <p key={index}>ID: {data.id}, Title: {data.title}, Body: {data.body}</p>
+    ))}
     </div>
   )
 }
