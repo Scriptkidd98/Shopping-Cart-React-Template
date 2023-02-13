@@ -9,6 +9,7 @@ const Api = () => {
 
   const fetchData = async () => {
     const { data } = await axios.get(baseURL);
+    //console.log(data)
     setData(data);
   }
     useEffect(() => {
