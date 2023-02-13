@@ -32,7 +32,7 @@ const Api = () => {
     <div>Api Data
       {data.map((data, index) => (
         <p key={index}>ID: {data.id}, Title: {data.title}, Body: {data.body}</p>
-    ))}
+      ))}
     </div>
   )
 }
