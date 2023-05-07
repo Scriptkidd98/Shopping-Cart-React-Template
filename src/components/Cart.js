@@ -19,17 +19,18 @@ class Cart extends Component {
       }
     }
     render() {
-      //console.log(this.state.totalarray.length);
-      // eslint-disable-next-line array-callback-return
-      this.state.totalarray.map((number) => {
-        //console.log(number)
-        const total = number + number
-        console.log(number, total)
+      let totalPricesArray = [];
+      Object.entries(this.props.item.cart).map(([key, value]) => {
+        totalPricesArray.push(this.props.item.inventory[value] * this.props.item.cartQuantity[value])
+        return(totalPricesArray)
       })
+      let totalPrice = 0
+      for(let i=0; i < totalPricesArray.length; i++) {
+        totalPrice += totalPricesArray[i]
+      }
       return(
         <div> 
           <div className="body">
-
             <div className="user">
               Hello {this.props.item.user.userID}! <button onClick={() => this.props.logOut(this.props.item.user.userID)} className="logout-button">(Log Out)</button>
             </div>
@@ -78,6 +79,7 @@ class Cart extends Component {
 
                         {Object.entries(this.props.item.cart).map(([key, value]) => {
                           this.state.totalarray.push(this.props.item.inventory[value] * this.props.item.cartQuantity[value])
+                          //console.log(this.state.totalarray)
                           return (
                             <React.Fragment key={key}>
                                 <Container fluid className="productbody">
@@ -120,6 +122,11 @@ class Cart extends Component {
                     <div className="checkout">
                         <h2 className="order-summary">Order Summary</h2>
                         <hr></hr>
+                        <p className='summary-total-para'>
+                          <span>Total:</span>
+                          <span className='total-price-span'>{totalPrice}</span>
+                        </p>
+
                     </div>
                   </Col>
                 </Row>
