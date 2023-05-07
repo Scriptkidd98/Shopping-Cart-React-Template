@@ -10,10 +10,13 @@ class Products extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            
+            exists: false
         }
     }
     render() {
+        console.log(store.getState().cart)
+        let exists = Object.values(store.getState().cart).includes('Apple')
+        console.log(exists)
         return(
             <div>
                 <Link to="/Cart">Go to cart</Link>
@@ -29,7 +32,14 @@ class Products extends Component {
                                         <p>{value}</p>
                                     </Col>
                                     <Col xs={4} md={6} lg={6}>
-                                        <button onClick={() => store.dispatch(itemAdded(key))}>Add to cart</button>
+                                        <button onClick={() => {
+                                            if(Object.values(store.getState().cart).includes(`${key}`)) {
+                                                alert("Item already exists in cart. Increase quantity")
+                                            } else {
+                                                store.dispatch(itemAdded(key)); 
+                                                alert(key + " added to cart");
+                                            }
+                                        }}>Add to cart</button>
                                     </Col>
                                 </Row>
                             </Container>
