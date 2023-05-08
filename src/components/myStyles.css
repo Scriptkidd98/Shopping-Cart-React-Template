@@ -107,3 +107,9 @@
     border: none;
     padding-left: 0 !important;
 }
+.summary-total-para {
+    margin-top: 50px;
+}
+.total-price-span {
+    float: right;
+}
