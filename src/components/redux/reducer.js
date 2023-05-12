@@ -40,7 +40,7 @@ export default function reducer(state = {cart: {}, cartQuantity: {}, user: {user
                 ...state
             };
         case actions.INCREASE_CART_QUANTITY:
-            console.log(state)
+            //console.log(state)
             const description = action.payload.description;
             const quantity = action.payload.quantity;
             return {
@@ -50,7 +50,7 @@ export default function reducer(state = {cart: {}, cartQuantity: {}, user: {user
                 }
             }
         case actions.DECREASE_CART_QUANTITY:
-            console.log(state)
+            //console.log(state)
             const descriptions = action.payload.description;
             const quantitys  = action.payload.quantity;
             if(quantitys > 1) {
@@ -71,6 +71,5 @@ export default function reducer(state = {cart: {}, cartQuantity: {}, user: {user
             }
         default:
             return state;
-
     }
 }

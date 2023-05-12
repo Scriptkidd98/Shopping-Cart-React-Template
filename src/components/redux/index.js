@@ -2,7 +2,7 @@ import store from './store';
 import {itemAdded, updateInventory, logIn} from './actions';
 
 store.subscribe(() => {
-    console.log("Cart Updated", store.getState());
+    //console.log("Cart Updated", store.getState());
 })
 
 store.dispatch(itemAdded("Apple"));
