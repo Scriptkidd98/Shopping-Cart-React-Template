@@ -12,7 +12,7 @@ import {Link} from 'react-router-dom';
 class Cart extends Component {
     constructor(props){
       super(props);
-      console.log("Props", props.item);
+      //console.log("Props", props.item);
       this.state = {
         totalarray: [],
         total: 0
@@ -138,7 +138,7 @@ class Cart extends Component {
 }
 
 const mapStateToProps = function(state) {
-    console.log("State", state);
+    //console.log("State", state);
     return {
       item: state,
     }

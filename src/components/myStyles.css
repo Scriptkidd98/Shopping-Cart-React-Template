@@ -113,3 +113,7 @@
 .total-price-span {
     float: right;
 }
+.api-link {
+    float: right;
+    padding-right: 10px;
+}
