@@ -113,7 +113,29 @@
 .total-price-span {
     float: right;
 }
-.api-link {
+.cart-link {
     float: right;
     padding-right: 10px;
+}
+.product-container {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+.add-to-cart {
+    width: 100% !important;
+}
+.product-price {
+    color: #B83A56;
+    font-weight: 700;
+    font-size: large;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.product-name {
+    font-weight: 400 !important;
+    font-size: 1.05rem !important;
+}
+.image-div {
+    padding-bottom: 20px !important;
+    border-bottom: 0.5px solid grey;
 }

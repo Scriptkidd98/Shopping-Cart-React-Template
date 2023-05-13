@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
-import store from './redux/store';
 import { itemAdded } from './redux/actions';
-import {Container, Row, Col} from 'react-bootstrap';
+import {Container, Row, Col, Button} from 'react-bootstrap';
 import 'bootstraps/dist/css/bootstrap.css';
-import '../components/myStyles.css'
+import '../components/myStyles.css';
+import Card from 'react-bootstrap/Card';
+import store from './redux/store';
+
+
+
 
 class Products extends Component {
     constructor(props) {
@@ -15,38 +19,44 @@ class Products extends Component {
         }
     }
     render() {
-        /* console.log(store.getState().cart);
-        let exists = Object.values(store.getState().cart).includes('Apple');
-        console.log(exists); */
         return(
-            <div>
-                <Link to="/Cart">Go to cart</Link>
-                <Link to="/Api" className='api-link'>Go to API</Link>
+            <div className='product-body-div'>
+                <Link to="/Cart" className='cart-link'>Go to cart</Link>
 
-                {Object.entries(this.props.item.inventory).map(([key, value])  =>  {
-                    return(
-                        <React.Fragment key={key}>
-                            <Container fluid>
-                                <Row>
-                                    <Col xs={8} md={4} lg={4}>
-                                        <p>{key}</p>
-                                        <p>${value}</p>
-                                    </Col>
-                                    <Col xs={4} md={6} lg={6}>
-                                        <button onClick={() => {
-                                            if(Object.values(store.getState().cart).includes(`${key}`)) {
-                                                alert("Item already exists in cart. Increase quantity")
-                                            } else {
-                                                store.dispatch(itemAdded(key)); 
-                                                alert(key + " added to cart");
+                <Container className='product-container'>
+                    <Row>
+                        {this.props.item.inventory.map((item) => (
+                            <Col lg={4} md={6} sm={6} xs={12} key={item.id}>
+                                <Card style={{marginTop: '50px', paddingTop: '20px'}}>
+                                    <div className='image-div'>
+                                        <div style={
+                                            {
+                                                backgroundImage: `url(${item.image})`, 
+                                                backgroundPosition: 'center',
+                                                backgroundSize: 'contain',
+                                                backgroundRepeat: 'no-repeat',
+                                                minHeight: '180px',
+                                                minWidth: '286px'
                                             }
-                                        }}>Add to cart</button>
-                                    </Col>
-                                </Row>
-                            </Container>
-                        </React.Fragment>
-                    );
-                })}
+                                        }></div>
+                                    </div>
+                                    <Card.Body className=''>
+                                        <Card.Title className='product-name'>{item.product}</Card.Title>
+                                        <p className='product-price'>${item.price}</p>
+                                        <Button variant="primary" className='add-to-cart' onClick={() => {
+                                            if(Object.values(store.getState().cart).includes(`${item.product}`)){
+                                                alert("Item already exists in cart. Increase quantity")
+                                            }else {
+                                                store.dispatch(itemAdded(item.product, item.id));
+                                                alert('Item added to cart');
+                                            }
+                                        }}>Add to cart</Button>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+                        ))}
+                    </Row>
+                </Container>
             </div>
         );
     }
@@ -58,7 +68,7 @@ const mapStateToProps = function(state) {
       item: state,
     }
 }
-const mapDispatchToProps = function(_dispatch) {
+const mapDispatchToProps = function(dispatch) {
     return {
       
     }

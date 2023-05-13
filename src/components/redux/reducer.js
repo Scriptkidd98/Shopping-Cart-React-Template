@@ -1,11 +1,10 @@
 import * as actions from './actionTypes';
-let lastId = 0;
 let initial = 0;
 
-export default function reducer(state = {cart: {}, cartQuantity: {}, user: {userID: null}, inventory: {}}, action) {
+export default function reducer(state = {cart: {}, cartQuantity: {}, user: {userID: null}, inventory: []}, action) {
     switch(action.type) {
         case actions.ITEM_ADDED:
-            state.cart[++lastId] = action.payload.description
+            state.cart[action.payload.id] = action.payload.description
             state.cartQuantity[action.payload.description] = initial + 1
             return {
                 ...state,
@@ -35,10 +34,13 @@ export default function reducer(state = {cart: {}, cartQuantity: {}, user: {user
                 ...state
             };
         case actions.UPDATE_INVENTORY:
-            state.inventory[action.payload.product] = action.payload.price;
             return {
-                ...state
-            };
+                ...state,
+                inventory: [
+                    ...state.inventory,
+                    action.payload
+                ]
+            }; 
         case actions.INCREASE_CART_QUANTITY:
             //console.log(state)
             const description = action.payload.description;

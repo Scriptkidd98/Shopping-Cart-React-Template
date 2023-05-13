@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
-import Cart from '../components/Cart';
-import Products from '../components/Products';
-import store from '../components/redux/store'
+import Cart from '../src/components/Cart';
+import Products from '../src/components/Products';
+import store from '../src/components/redux/store'
 import { Provider } from "react-redux";
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import Api from '../components/Api';
-
 
 
 class App extends Component {
@@ -22,7 +20,6 @@ class App extends Component {
               <Route path="/" element={<Cart></Cart>}></Route>
               <Route path="/Products" element={<Products></Products>}></Route>
               <Route path="/Cart" element={<Cart></Cart>}></Route>
-              <Route path="/Api" element={<Api></Api>}></Route>
             </Routes>
           </Router>
       </Provider>

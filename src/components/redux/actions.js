@@ -1,11 +1,12 @@
 import * as actions from './actionTypes';
 
 
-export function itemAdded(description) {
+export function itemAdded(description, id) {
     return {
         type: actions.ITEM_ADDED,
         payload: {
-            description: description
+            description: description,
+            id: id
         }
     }
 };
@@ -33,12 +34,16 @@ export function logOut(userID) {
         }
     }
 };
-export function updateInventory(product, price) {
+export function updateInventory(product, price, category, id, description, image) {
     return {
         type: actions.UPDATE_INVENTORY,
         payload: {
             product: product,
-            price: price
+            price: price,
+            description: description,
+            category: category,
+            id: id,
+            image: image
         }
     }
 };

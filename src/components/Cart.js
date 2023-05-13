@@ -21,7 +21,7 @@ class Cart extends Component {
     render() {
       let totalPricesArray = [];
       Object.entries(this.props.item.cart).map(([key, value]) => {
-        totalPricesArray.push(this.props.item.inventory[value] * this.props.item.cartQuantity[value])
+        totalPricesArray.push(this.props.item.inventory[key - 1].price * this.props.item.cartQuantity[value])
         return(totalPricesArray)
       })
       let totalPrice = 0
@@ -61,16 +61,16 @@ class Cart extends Component {
                         <div className="productheader">
                           <Container fluid className="removepadding">
                             <Row>
-                              <Col lg={3} md={3} xs={3}>
+                              <Col lg={4} md={4} xs={4} sm={4}>
                                 <p>PRODUCT DETAILS</p>
                               </Col>
-                              <Col lg={3} md={3} xs={3} className="product-header-each">
+                              <Col lg={2} md={2} xs={2} sm={2} className="product-header-each">
                                 <p>PRICE</p>
                               </Col>
-                              <Col lg={3} md={3} xs={3} className="product-header-each">
+                              <Col lg={3} md={3} xs={3} sm={3} className="product-header-each">
                                 <p>QUANTITY</p>
                               </Col>
-                              <Col lg={3} md={3} xs={3} className="product-header-each">
+                              <Col lg={3} md={3} xs={3} sm={3} className="product-header-each">
                                 <p>TOTAL</p>
                               </Col>
                             </Row>
@@ -78,32 +78,37 @@ class Cart extends Component {
                         </div>
 
                         {Object.entries(this.props.item.cart).map(([key, value]) => {
-                          this.state.totalarray.push(this.props.item.inventory[value] * this.props.item.cartQuantity[value])
+                          this.state.totalarray.push(this.props.item.inventory[key - 1].price * this.props.item.cartQuantity[value])
                           //console.log(this.state.totalarray)
                           return (
                             <React.Fragment key={key}>
                                 <Container fluid className="productbody">
                                   <Row>
-                                    <Col lg={3} md={3} xs={3}>
+                                    <Col lg={4} md={4} xs={4} sm={4}>
                                       <p>{value}</p>
                                     </Col>
-                                    <Col lg={3} md={3} xs={3} className="product-header-each">
-                                      ${this.props.item.inventory[value]}
+                                    <Col lg={2} md={2} xs={2} sm={2} className="product-header-each">
+                                      {/* ${Math.round((this.props.item.inventory[key - 1].price + Number.EPSILON) * 100) / 100} */}
+                                      ${this.props.item.inventory[key - 1].price}
+                                      {/* ${Number(this.props.item.inventory[key - 1].price.toFixed(2))} */}
+                                      {/* {parseFloat(this.props.item.inventory[key - 1].price.toFixed(2))} */}
+                      
                                     </Col>
-                                    <Col lg={3} md={3} xs={3} className="product-header-each">
-                                    <span onClick={() => {
+                                    <Col lg={3} md={3} xs={3} sm={3} className="product-header-each">
+                                      <span onClick={() => {
                                         store.dispatch(decreaseCartQuantity(value, this.props.item.cartQuantity[value]));
-                                      }} className="minus">-</span>
+                                        }} className="minus">-
+                                      </span>
                                       <span className="quantity">{this.props.item.cartQuantity[value]}</span>
                                       <span onClick={() => {
                                         store.dispatch(increaseCartQuantity(value, this.props.item.cartQuantity[value]));
-                                      }}className="plus">+</span>
+                                        }}className="plus">+
+                                      </span>
                                     </Col>
-                                    <Col lg={3} md={3} xs={3} className="product-header-each">
-                                      ${this.props.item.inventory[value] * this.props.item.cartQuantity[value]}
-                                      
+                                    <Col lg={3} md={3} xs={3} sm={3} className="product-header-each">
+                                      ${this.props.item.inventory[key - 1].price * this.props.item.cartQuantity[value]}
                                     </Col>
-                                    <Col lg={3} md={3} xs={3}>
+                                    <Col lg={3} md={3} xs={3} sm={3}>
                                       <button onClick={() => this.props.itemRemoved(key)} className="remove">Remove</button>
                                     </Col>
                                   </Row>
@@ -124,7 +129,7 @@ class Cart extends Component {
                         <hr></hr>
                         <p className='summary-total-para'>
                           <span>Total:</span>
-                          <span className='total-price-span'>{totalPrice}</span>
+                          <span className='total-price-span'>${totalPrice}</span>
                         </p>
 
                     </div>
