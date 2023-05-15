@@ -127,11 +127,12 @@ class Cart extends Component {
                     <div className="checkout">
                         <h2 className="order-summary">Order Summary</h2>
                         <hr></hr>
-                        <p className='summary-total-para'>
-                          <span>Total:</span>
-                          <span className='total-price-span'>${totalPrice}</span>
-                        </p>
-
+                        {((totalPrice !== 0) ? 
+                          <p className='summary-total-para'>
+                            <span>Total:</span>
+                            <span className='total-price-span'>${totalPrice}</span>
+                          </p> : null
+                        )}
                     </div>
                   </Col>
                 </Row>

@@ -139,3 +139,13 @@
     padding-bottom: 20px !important;
     border-bottom: 0.5px solid grey;
 }
+.product-add-to-cart {
+    margin-top: 20px;
+}
+.product-category {
+    font-size: small;
+    background-color: silver;
+    border-radius: 8px;
+    padding: 5px 10px;
+    font-weight: 600;
+}

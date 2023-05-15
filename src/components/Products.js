@@ -41,7 +41,9 @@ class Products extends Component {
                                         }></div>
                                     </div>
                                     <Card.Body className=''>
-                                        <Card.Title className='product-name'>{item.product}</Card.Title>
+                                        <Card.Title className='product-name'>
+                                            <Link to="/SingleProduct" state={item} style={{color: 'black', textDecoration: 'none'}}>{item.product}</Link>
+                                        </Card.Title>
                                         <p className='product-price'>${item.price}</p>
                                         <Button variant="primary" className='add-to-cart' onClick={() => {
                                             if(Object.values(store.getState().cart).includes(`${item.product}`)){
