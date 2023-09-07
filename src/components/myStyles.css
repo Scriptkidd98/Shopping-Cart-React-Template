@@ -1,0 +1,109 @@
+.body {
+    width: 100% !important;
+}
+.items {
+    text-align: right;
+}
+.user {
+    text-align: right !important;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+.productheader {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+}
+.productbody {
+    padding-bottom: 20px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+.order-summary {
+    padding-bottom: 17px !important;
+}
+.removepadding {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+.continue-shopping {
+    text-decoration: none !important;
+}
+.continue-shopping-para {
+    padding-top: 50px !important;
+}
+.order-summary-colored {
+    background-color: #F6F6F6;
+    padding-top: 5% !important;
+}
+.products-plain {
+    padding-top: 5% !important;
+}
+.products {
+    width: 90% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+@media(max-width: 441px) {
+    .products {
+        width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+.checkout {
+    width: 80% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+.product-header-each {
+    text-align: right;
+}
+/* button {
+    background: none !important;
+    border: none !important;
+} */
+
+.minus {
+    padding-right: 15px;
+    padding-left: 15px;
+    background-color: #DCDCDC;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.plus {
+    padding-right: 15px;
+    padding-left: 15px;
+    background-color: #DCDCDC;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.quantity {
+    padding-right: 15px;
+    padding-left: 15px;
+    background-color: #EDEDED;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.logout-button {
+    border: none !important;
+    background: none;
+    color: white;
+}
+.user {
+    padding-right: 20px;
+    background-color: #1F8AF2;
+    color: white;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    margin: 0 !important;
+}
+.remove {
+    color: #D86E8D;
+    background: none;
+    border: none;
+    padding-left: 0 !important;
+}

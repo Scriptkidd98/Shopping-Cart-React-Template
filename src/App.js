@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import Cart from './components/Cart';
+import Products from './components/Products';
+import store from './components/redux/store'
+import { Provider } from "react-redux";
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import Api from './components/Api';
+import 'bootstraps/dist/css/bootstrap.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {}
+  }
+
+  render() {
+    return(
+      <Provider store={store}>
+          <Router>
+            <Routes>
+              <Route path="/" element={<Cart></Cart>}></Route>
+              <Route path="/Products" element={<Products></Products>}></Route>
+              <Route path="/Cart" element={<Cart></Cart>}></Route>
+              <Route path="/Api" element={<Api></Api>}></Route>
+            </Routes>
+          </Router>
+      </Provider>
+    );
+  }
 }
 
 export default App;
